@@ -1,9 +1,7 @@
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
+#include "main.h"
 int main(int arg_count, char **arg_values)
 {
-	int descriptor, bytes_read = 10, i, last_newline = 0;
+	int descriptor, bytes_read = 10, i;
 	char buffer[10], save[10];
 
 	if (arg_count != 2)
