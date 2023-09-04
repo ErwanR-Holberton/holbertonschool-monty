@@ -4,6 +4,7 @@
 #include <stdio.h>/*for printf*/
 #include <stdlib.h>/*for free*/
 #include <unistd.h>/*for ssize_t*/
+#include <string.h>/*for strtok*/
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -34,5 +35,9 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+int find_function_to_call(char *line, instruction_t array[], int line_count);
+void f_push();
+void f_pall();
 
 #endif
