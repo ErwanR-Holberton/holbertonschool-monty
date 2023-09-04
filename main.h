@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MAIN
+#define MAIN
 
 #include <stdio.h>
 #include <fcntl.h>
@@ -35,4 +35,4 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-#endif /* MAIN_H */
+#endif
