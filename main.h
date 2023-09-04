@@ -1,9 +1,9 @@
 #ifndef MAIN
 #define MAIN
 
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
+#include <stdio.h>/*for printf*/
+#include <stdlib.h>/*for free*/
+#include <unistd.h>/*for ssize_t*/
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

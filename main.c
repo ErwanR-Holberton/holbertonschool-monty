@@ -7,7 +7,10 @@ int main(int arg_count, char **arg_values)
 	char buffer[10], save[10], *line = NULL;
 
 	if (arg_count != 2)
+	{
+		fprintf(stderr, "Usage: %s <file>\n", arg_values[0]);
 		return (0);
+	}
 	stream = fopen(arg_values[1], "r");
 
 	while (1)
@@ -16,6 +19,9 @@ int main(int arg_count, char **arg_values)
 			break;
 		printf("%s", line);
 	}
+
+	free(line);
+	fclose(stream);
 	return (0);
 
 }
