@@ -1,10 +1,10 @@
 #include "main.h"
 int main(int arg_count, char **arg_values)
 {
-	int descriptor, bytes_read = 10, i;
+	int line_count = 0;
 	FILE *stream;
-	ssize_t len;
-	char buffer[10], save[10], *line = NULL;
+	size_t len;
+	char *line = NULL;
 
 	if (arg_count != 2)
 	{
@@ -13,10 +13,9 @@ int main(int arg_count, char **arg_values)
 	}
 	stream = fopen(arg_values[1], "r");
 
-	while (1)
+	while (getline(&line, &len, stream) != -1)
 	{
-		if (getline(&line, &len, stream) == -1)
-			break;
+		line_count++;
 		printf("%s", line);
 	}
 
