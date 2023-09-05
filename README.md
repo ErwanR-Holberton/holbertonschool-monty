@@ -1,4 +1,4 @@
-#holbertonschool-monty
+# holbertonschool-monty
 Interprets monty commands to interact with a data structure type double linked lists
 commands are in a .m file
 "push" to add a new element to datastructure
