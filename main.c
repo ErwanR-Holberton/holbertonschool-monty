@@ -15,7 +15,8 @@ int main(int arg_count, char **arg_values)
 	size_t len;
 	char *line = NULL;
 	stack_t *list_head = NULL;
-	instruction_t array_string_function[] = {{"push", f_push}, {"pall", f_pall}};
+	instruction_t array_string_function[] = {{"push", f_push},
+	{"pall", f_pall}, {"pint", f_pint}, {NULL, NULL}};
 
 	if (arg_count != 2)
 	{/*handle error if the user don't use format "program_name file_name"*/

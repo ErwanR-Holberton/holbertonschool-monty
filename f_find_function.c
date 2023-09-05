@@ -13,7 +13,7 @@ int find_function_to_call(char *line, instruction_t array[], int line_count)
 	char *instruction = strtok(line, " \n");
 	int i;
 
-	for (i = 0; i < 2; i++)
+	for (i = 0; array[i].opcode != NULL; i++)
 		if (strcmp(instruction, array[i].opcode) == 0)
 			return (i);
 
