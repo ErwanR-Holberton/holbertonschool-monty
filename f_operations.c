@@ -85,3 +85,29 @@ void f_mul(stack_t **stack, unsigned int line_number)
 	(*stack) = (*stack)->next;
 	free((*stack)->prev);
 }
+/**
+ * f_mod - element 2 becomes the rest of E2/E1 and element 1 is freed
+ * @stack: points to the start of a list
+ * @line_number: number of the current command line
+ *
+ * Description: element 2 becomes the rest of E2/E1 and element 1 is freed
+ * Return: NOTHING
+ */
+void f_mod(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
+		error = 1;
+		return;
+	}
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		error = 1;
+		return;
+	}
+	(*stack)->next->n %= (*stack)->n;
+	(*stack) = (*stack)->next;
+	free((*stack)->prev);
+}
