@@ -35,7 +35,33 @@ void f_sub(stack_t **stack, unsigned int line_number)
 		error = 1;
 		return;
 	}
-	(*stack)->next->n = (*stack)->n - (*stack)->next->n;
+	(*stack)->next->n -= (*stack)->n;
+	(*stack) = (*stack)->next;
+	free((*stack)->prev);
+}
+/**
+ * f_div - divides the second top element by the top element of the stack
+ * @stack: points to the start of a list
+ * @line_number: number of the current command line
+ *
+ * Description: divides the second top element by the top element of the stack
+ * Return: NOTHING
+ */
+void f_div(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		error = 1;
+		return;
+	}
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		error = 1;
+		return;
+	}
+	(*stack)->next->n /= (*stack)->n;
 	(*stack) = (*stack)->next;
 	free((*stack)->prev);
 }
