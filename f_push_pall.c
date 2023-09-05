@@ -128,5 +128,7 @@ void f_add(stack_t **stack, unsigned int line_number)
 		error = 1;
 		return;
 	}
-	printf("%d\n", (*stack)->n + (*stack)->next->n);
+	(*stack)->next->n += (*stack)->n;
+	(*stack) = (*stack)->next;
+	free((*stack)->prev);
 }
