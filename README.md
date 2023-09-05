@@ -1,4 +1,4 @@
-C - Stacks, Queues - LIFO, FIFO
+# C - Stacks, Queues - LIFO, FIFO
 
 General
 Allowed editors: vi, vim, emacs
@@ -14,19 +14,21 @@ Don’t forget to push your header file
 All your header files should be include guarded
 You are expected to do the tasks in the order shown in the project
 
+---
 
-
-Compilation
+## Compilation
 
 Your code will be compiled this way:
+
+```
 $ gcc -Wall -Werror -Wextra -pedantic *.c -o monty
-
-
+```
+---
 
 Interprets monty commands to interact with a data structure type double linked lists
 commands are in a .m file
 
-Tasks:
+## Tasks:
 
 0. push, pall
 "push" to add a new element to datastructure
@@ -47,7 +49,7 @@ Tasks:
 5. nop
 "nop" does nothing
 
--
+---
 
-AUTHORS
+## AUTHORS
 Antoine Lelievre, Erwan Rocal
