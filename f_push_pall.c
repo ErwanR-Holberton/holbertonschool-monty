@@ -74,6 +74,8 @@ void f_pall(stack_t **stack, unsigned int line_number)
  */
 void f_pop(stack_t **stack, unsigned int line_number)
 {
+	stack_t *save = *stack;
+
 	(void)line_number;
 
 	if (*stack == NULL)
@@ -83,9 +85,7 @@ void f_pop(stack_t **stack, unsigned int line_number)
 		return;
 	}
 	*stack = (*stack)->next;
+	free(save);
 	if (*stack != NULL)
-	{
-		free((*stack)->prev);
 		(*stack)->prev = NULL;
-	}
 }
