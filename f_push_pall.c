@@ -10,9 +10,18 @@
 void f_push(stack_t **stack, unsigned int line_number)
 {
 	char *value_str = strtok(NULL, " \n");
+	unsigned int i;
 	stack_t *new_element = malloc(sizeof(stack_t));
 
-	(void)line_number;
+	for (i = 0; i < strlen(value_str); i++)
+	{
+		if ((value_str[i] < '0' || value_str[i] > '9') && value_str[i] != '-' && value_str[i] != '+')
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
+	}
+
 	if (new_element == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
