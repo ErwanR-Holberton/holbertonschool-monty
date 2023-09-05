@@ -65,3 +65,23 @@ void f_div(stack_t **stack, unsigned int line_number)
 	(*stack) = (*stack)->next;
 	free((*stack)->prev);
 }
+/**
+ * f_mun - multiplies the second top two elements of the stack
+ * @stack: points to the start of a list
+ * @line_number: number of the current command line
+ *
+ * Description: multiplies the second top two elements of the stack
+ * Return: NOTHING
+ */
+void f_mul(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		error = 1;
+		return;
+	}
+	(*stack)->next->n *= (*stack)->n;
+	(*stack) = (*stack)->next;
+	free((*stack)->prev);
+}
