@@ -112,26 +112,6 @@ void f_swap(stack_t **stack, unsigned int line_number)
 	(*stack)->next->n = save;
 }
 /**
- * f_add - add the top two elements of the list
- * @stack: points to the start of a list
- * @line_number: number of the current command line
- *
- * Description: add the top two elements of the list
- * Return: NOTHING
- */
-void f_add(stack_t **stack, unsigned int line_number)
-{
-	if (*stack == NULL || (*stack)->next == NULL)
-	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		error = 1;
-		return;
-	}
-	(*stack)->next->n += (*stack)->n;
-	(*stack) = (*stack)->next;
-	free((*stack)->prev);
-}
-/**
  * f_nop - doesn’t do anything.
  * @stack: points to the start of a list
  * @line_number: number of the current command line
