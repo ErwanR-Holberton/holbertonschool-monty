@@ -37,9 +37,19 @@ int main(int arg_count, char **arg_values)
 		f = find_function_to_call(line, array_string_function, line_count);
 		array_string_function[f].f(&list_head, line_count);
 	}
-
+	
+	free_stack(&list_head);
 	free(line);
 	fclose(stream);
 	return (0);
-
+}
+void free_stack(stack_t **stack)
+{
+	stack_t *next_stack;
+	while (*stack != NULL)
+	{
+		next_stack = (*stack)->next;
+		free(*stack);
+		*stack = next_stack;
+	}
 }
