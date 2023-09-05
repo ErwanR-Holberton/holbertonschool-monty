@@ -63,3 +63,29 @@ void f_pchar(stack_t **stack, unsigned int line_number)
 
 	printf("%c\n", (*stack)->n);
 }
+/**
+ * f_pstr - prints the string starting at the top of the stack, and a new line
+ * @stack: pointer to the stack
+ * @line_number: line number of the instruction
+ *
+ * Description: prints the string at the top of the stack and a new line
+ * Return: NOTHING
+ */
+void f_pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current = *stack;
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		error = 1;
+		return;
+	}
+	while (current != NULL)
+	{
+		if (current->n <= 0 || current->n > 127)
+			break;
+		printf("%c\n", current->n);
+		current = current->next;
+	}
+}
