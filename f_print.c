@@ -23,6 +23,9 @@ void f_pall(stack_t **stack, unsigned int line_number)
  * f_pint - print the value at the top of the stack
  * @stack: pointer to the stack
  * @line_number: line number of the instruction
+ *
+ * Description: print the value at the top of the stack
+ * Return: NOTHING
  */
 void f_pint(stack_t **stack, unsigned int line_number)
 {
@@ -34,4 +37,29 @@ void f_pint(stack_t **stack, unsigned int line_number)
 	}
 
 	printf("%d\n", (*stack)->n);
+}
+/**
+ * f_pchar - print the value at the top of the stack as a char
+ * @stack: pointer to the stack
+ * @line_number: line number of the instruction
+ *
+ * Description: print the value at the top of the stack as a char
+ * Return: NOTHING
+ */
+void f_pchar(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		error = 1;
+		return;
+	}
+	if ((*stack)->n < 0 || (*stack)->n > 127)
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		error = 1;
+		return;
+	}
+
+	printf("%c\n", (*stack)->n);
 }
