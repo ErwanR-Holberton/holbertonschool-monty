@@ -18,5 +18,5 @@ int find_function_to_call(char *line, instruction_t array[], int line_count)
 			return (i);
 
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_count, instruction);
-	exit(EXIT_FAILURE);
+	return (-1);
 }
