@@ -89,3 +89,25 @@ void f_pop(stack_t **stack, unsigned int line_number)
 	if (*stack != NULL)
 		(*stack)->prev = NULL;
 }
+/**
+ * f_swap - swap the top two elements of the list
+ * @stack: points to the start of a list
+ * @line_number: number of the current command line
+ *
+ * Description: swap the top two elements of the list
+ * Return: NOTHING
+ */
+void f_swap(stack_t **stack, unsigned int line_number)
+{
+	int save;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		error = 1;
+		return;
+	}
+	save = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = save;
+}
