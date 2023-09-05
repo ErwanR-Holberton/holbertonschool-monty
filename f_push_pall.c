@@ -46,25 +46,6 @@ void f_push(stack_t **stack, unsigned int line_number)
 	*stack = new_element;
 }
 /**
- * f_pall - print the list
- * @stack: points to the start of a list
- * @line_number: number of the current command line
- *
- * Description: print the list
- * Return: NOTHING
- */
-void f_pall(stack_t **stack, unsigned int line_number)
-{
-	stack_t *current = *stack;
-	(void)line_number;
-
-	while (current != NULL)
-	{
-		printf("%d\n", current->n);
-		current = current->next;
-	}
-}
-/**
  * f_pop - remove first element of the list
  * @stack: points to the start of a list
  * @line_number: number of the current command line
