@@ -40,6 +40,7 @@ int find_function_to_call(char *line, instruction_t array[], int line_count);
 void f_push(stack_t **stack, unsigned int line_number);
 void f_pall(stack_t **stack, unsigned int line_number);
 void f_pint(stack_t **stack, unsigned int line_number);
+void f_pop(stack_t **stack, unsigned int line_number);
 
 void free_stack(stack_t **stack);
 

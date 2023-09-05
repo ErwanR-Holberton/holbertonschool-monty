@@ -19,7 +19,7 @@ void f_push(stack_t **stack, unsigned int line_number)
 		error = 1;
 		return;
 	}
-	
+
 	if (value_str == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
@@ -28,7 +28,8 @@ void f_push(stack_t **stack, unsigned int line_number)
 		return;
 	}
 	for (i = 0; i < strlen(value_str); i++)
-		if ((value_str[i] < '0' || value_str[i] > '9') && value_str[i] != '-' && value_str[i] != '+')
+		if ((value_str[i] < '0' || value_str[i] > '9') && value_str[i] != '-'
+		&& value_str[i] != '+')
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			free(new_element);
@@ -61,5 +62,24 @@ void f_pall(stack_t **stack, unsigned int line_number)
 	{
 		printf("%d\n", current->n);
 		current = current->next;
+	}
+}
+/**
+ * f_pop - remove first element of the list
+ * @stack: points to the start of a list
+ * @line_number: number of the current command line
+ *
+ * Description: remove first element of the list
+ * Return: NOTHING
+ */
+void f_pop(stack_t **stack, unsigned int line_number)
+{
+	(void)line_number;
+
+	*stack = (*stack)->next;
+	if (*stack != NULL)
+	{
+		free((*stack)->prev);
+		(*stack)->prev = NULL;
 	}
 }
