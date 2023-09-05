@@ -1,4 +1,7 @@
 #include "monty.h"
+
+int error = 0;
+
 /**
  * main - interpretor for monty code
  * @arg_count: number of words the user enterred
@@ -36,8 +39,15 @@ int main(int arg_count, char **arg_values)
 		line_count++;
 		f = find_function_to_call(line, array_string_function, line_count);
 		array_string_function[f].f(&list_head, line_count);
+		if (error == 1)
+		{
+			free_stack(&list_head);
+			free(line);
+			fclose(stream);
+			exit(EXIT_FAILURE);
+		}
 	}
-	
+
 	free_stack(&list_head);
 	free(line);
 	fclose(stream);

@@ -13,20 +13,28 @@ void f_push(stack_t **stack, unsigned int line_number)
 	unsigned int i;
 	stack_t *new_element = malloc(sizeof(stack_t));
 
-	for (i = 0; i < strlen(value_str); i++)
-	{
-		if ((value_str[i] < '0' || value_str[i] > '9') && value_str[i] != '-' && value_str[i] != '+')
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
-		}
-	}
-
 	if (new_element == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		error = 1;
+		return;
 	}
+	
+	if (value_str == NULL)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free(new_element);
+		error = 1;
+		return;
+	}
+	for (i = 0; i < strlen(value_str); i++)
+		if ((value_str[i] < '0' || value_str[i] > '9') && value_str[i] != '-' && value_str[i] != '+')
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			free(new_element);
+			error = 1;
+			return;
+		}
 
 	new_element->n = atoi(value_str);
 	new_element->prev = NULL;

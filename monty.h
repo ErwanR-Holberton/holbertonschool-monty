@@ -43,4 +43,6 @@ void f_pint(stack_t **stack, unsigned int line_number);
 
 void free_stack(stack_t **stack);
 
+extern int error;
+
 #endif
