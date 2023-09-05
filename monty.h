@@ -1,5 +1,5 @@
-#ifndef MAIN
-#define MAIN
+#ifndef MONTY
+#define MONTY
 
 #include <stdio.h>/*for printf*/
 #include <stdlib.h>/*for free*/

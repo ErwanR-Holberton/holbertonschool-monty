@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 /**
  * f_push - add a node to the list
  * @stack: points to the start of a list

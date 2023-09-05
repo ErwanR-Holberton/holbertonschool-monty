@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 /**
  * main - interpretor for monty code
  * @arg_count: number of words the user enterred

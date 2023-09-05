@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 /**
  * find_function_to_call - searches for the command in the array
  * @line: one command line of the .m file
