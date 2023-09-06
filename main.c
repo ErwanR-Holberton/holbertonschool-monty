@@ -40,7 +40,7 @@ int main(int arg_count, char **arg_values)
 	{
 		line_count++;
 		f = find_function_to_call(line, array_string_function, line_count);
-		if (f != -1)
+		if (f >= 0)
 			array_string_function[f].f(&list_head, line_count);
 		if (error == 1 || f == -1)
 		{
