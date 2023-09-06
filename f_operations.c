@@ -66,7 +66,7 @@ void f_div(stack_t **stack, unsigned int line_number)
 	free((*stack)->prev);
 }
 /**
- * f_mun - multiplies the second top two elements of the stack
+ * f_mul - multiplies the second top two elements of the stack
  * @stack: points to the start of a list
  * @line_number: number of the current command line
  *

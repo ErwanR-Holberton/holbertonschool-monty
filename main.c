@@ -35,7 +35,6 @@ int main(int arg_count, char **arg_values)
 		fprintf(stderr, "Error: Can't open file %s\n", arg_values[1]);
 		exit(EXIT_FAILURE);
 	}
-
 	while (getline(&line, &len, stream) != -1)/*main loop*/
 	{
 		line_count++;
@@ -50,7 +49,6 @@ int main(int arg_count, char **arg_values)
 			exit(EXIT_FAILURE);
 		}
 	}
-
 	free_stack(&list_head);
 	free(line);
 	fclose(stream);
