@@ -22,7 +22,7 @@ int main(int arg_count, char **arg_values)
 
 	if (arg_count != 2)
 	{/*handle error if the user don't use format "program_name file_name"*/
-		fprintf(stderr, "Usage: %s file\n", arg_values[0]);
+		fprintf(stderr, "Usage: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	stream = fopen(arg_values[1], "r");
