@@ -10,7 +10,7 @@
  */
 int main(int arg_count, char **arg_values)
 {
-	int line_count = 0, f;
+	int line_count = 0, f;/*count number of lines, f is the index of function*/
 	FILE *stream;
 	size_t len;
 	char *line = NULL;
@@ -32,23 +32,18 @@ int main(int arg_count, char **arg_values)
 		exit(EXIT_FAILURE);
 	}
 	error = 0;
-	while (getline(&line, &len, stream) != -1)/*main loop*/
-	{
+	while (getline(&line, &len, stream) != -1 && error == 0 && f != -1)
+	{/*						 main loop*/
 		line_count++;
 		f = find_function_to_call(line, array_string_function, line_count);
 		if (f >= 0)
 			array_string_function[f].f(&list_head, line_count);
-		if (error == 1 || f == -1)
-		{
-			free_stack(&list_head);
-			free(line);
-			fclose(stream);
-			exit(EXIT_FAILURE);
-		}
 	}
 	free_stack(&list_head);
 	free(line);
 	fclose(stream);
+	if (error == 1 || f == -1)
+		exit(EXIT_FAILURE);
 	return (0);
 }
 /**
