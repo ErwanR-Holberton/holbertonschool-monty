@@ -56,6 +56,6 @@ void f_pstr(stack_t **stack, unsigned int line_number);
 
 void free_stack(stack_t **stack);
 
-extern int error;
+int error;
 
 #endif

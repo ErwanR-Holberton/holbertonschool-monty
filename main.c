@@ -1,7 +1,4 @@
 #include "monty.h"
-
-int error = 0;
-
 /**
  * main - interpretor for monty code
  * @arg_count: number of words the user enterred
@@ -25,16 +22,16 @@ int main(int arg_count, char **arg_values)
 
 	if (arg_count != 2)
 	{/*handle error if the user don't use format "program_name file_name"*/
-		fprintf(stderr, "Usage: %s <file>\n", arg_values[0]);
+		fprintf(stderr, "Usage: %s file\n", arg_values[0]);
 		exit(EXIT_FAILURE);
 	}
-
 	stream = fopen(arg_values[1], "r");
 	if (stream == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", arg_values[1]);
 		exit(EXIT_FAILURE);
 	}
+	error = 0;
 	while (getline(&line, &len, stream) != -1)/*main loop*/
 	{
 		line_count++;
