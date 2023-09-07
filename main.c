@@ -22,7 +22,7 @@ int main(int arg_count, char **arg_values)
 
 	if (arg_count != 2)
 	{/*handle error if the user don't use format "program_name file_name"*/
-		fprintf(stderr, "Usage: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	stream = fopen(arg_values[1], "r");
@@ -51,6 +51,13 @@ int main(int arg_count, char **arg_values)
 	fclose(stream);
 	return (0);
 }
+/**
+ * free_stack - frees the whole stack
+ * @stack: the list of values used during the program
+ *
+ * Description: frees the whole stack
+ * Return: NOTHING
+ */
 void free_stack(stack_t **stack)
 {
 	stack_t *next_stack;
