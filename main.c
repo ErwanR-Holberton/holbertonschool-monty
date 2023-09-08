@@ -47,21 +47,3 @@ int main(int arg_count, char **arg_values)
 		exit(EXIT_FAILURE);
 	return (0);
 }
-/**
- * free_stack - frees the whole stack
- * @stack: the list of values used during the program
- *
- * Description: frees the whole stack
- * Return: NOTHING
- */
-void free_stack(stack_t **stack)
-{
-	stack_t *next_stack;
-
-	while (*stack != NULL)
-	{
-		next_stack = (*stack)->next;
-		free(*stack);
-		*stack = next_stack;
-	}
-}
