@@ -38,8 +38,7 @@ int main(int arg_count, char **arg_values)
 		line_count++;
 		f = find_function(line, array_string_function, line_count, &mode);
 		if (f == 0 && mode == 1)
-		{
-			f = -5; /*-5 means push has been called in queue mode*/
+		{ f = -5; /*-5 means push has been called in queue mode*/
 			f_push_queue(&list_head, line_count);
 		}
 		if (f >= 0)

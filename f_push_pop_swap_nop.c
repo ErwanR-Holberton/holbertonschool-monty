@@ -125,7 +125,6 @@ void f_push_queue(stack_t **stack, unsigned int line_number)
 		error = 1;
 		return;
 	}
-
 	if (value_str == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
@@ -142,10 +141,8 @@ void f_push_queue(stack_t **stack, unsigned int line_number)
 			error = 1;
 			return;
 		}
-
 	new_element->n = atoi(value_str);
 	new_element->next = NULL;
-
 	if (current != NULL)
 	{
 		while (current->next != NULL)

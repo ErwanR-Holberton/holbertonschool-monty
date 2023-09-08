@@ -1,9 +1,10 @@
 #include "monty.h"
 /**
- * find_function_to_call - searches for the command in the array
+ * find_function - searches for the command in the array
  * @line: one command line of the .m file
  * @array: array with a function for each command/ instruction
  * @line_count: number of the current command line
+ * @mode: queue 1 or stack 0
  *
  * Description: searches for the command in the array
  * Return: the index of the correpoding function

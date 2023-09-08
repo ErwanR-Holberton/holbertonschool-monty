@@ -36,7 +36,8 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-int find_function(char *line, instruction_t array[], int line_count, int *mode);
+int find_function(char *line, instruction_t array[], int line_count, int
+*mode);
 void free_stack(stack_t **stack);
 
 void f_push(stack_t **stack, unsigned int line_number);
