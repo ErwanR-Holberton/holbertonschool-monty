@@ -85,7 +85,8 @@ void f_pstr(stack_t **stack, unsigned int line_number)
 	{
 		if (current->n <= 0 || current->n > 127)
 			break;
-		printf("%c\n", current->n);
+		printf("%c", current->n);
 		current = current->next;
 	}
+	printf("\n");
 }
