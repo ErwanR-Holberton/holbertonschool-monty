@@ -7,14 +7,19 @@
  *
  * Description: searches for the command in the array
  * Return: the index of the correpoding function
+ * or -1 on failure (no command with this name)
+ * -2 on empty line
+ * -3 on comments (do nothing)
  */
 int find_function_to_call(char *line, instruction_t array[], int line_count)
 {
 	char *instruction = strtok(line, " \n");
 	int i;
 
-	if (instruction == NULL)
-		return (-2);
+	if (instruction == NULL)/*nothing on the line*/
+		return (-2);/* -2 error will not stop the program*/
+	if (instruction[0] == '#')/*comments*/
+		return (-3);
 	for (i = 0; array[i].opcode != NULL; i++)
 		if (strcmp(instruction, array[i].opcode) == 0)
 			return (i);
