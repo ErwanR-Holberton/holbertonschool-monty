@@ -10,8 +10,8 @@
  */
 int main(int arg_count, char **arg_values)
 {
-	int line_count = 0, f;/*count number of lines, f is the index of function*/
-	FILE *stream;
+	int line_count = 0, f, mode = 0;/*line_count = count number of lines read*/
+	FILE *stream;/* f is index of function, mode is 0 for stack 1 for queue*/
 	size_t len;
 	char *line = NULL;
 	stack_t *list_head = NULL;
@@ -36,7 +36,12 @@ int main(int arg_count, char **arg_values)
 	while (getline(&line, &len, stream) != -1 && error == 0 && f != -1)
 	{/*						 main loop*/
 		line_count++;
-		f = find_function_to_call(line, array_string_function, line_count);
+		f = find_function(line, array_string_function, line_count, &mode);
+		if (f == 0 && mode == 1)
+		{
+			f = -5; /*-5 means push has been called in queue mode*/
+			f_push_queue(&list_head, line_count);
+		}
 		if (f >= 0)
 			array_string_function[f].f(&list_head, line_count);
 	}

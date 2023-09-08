@@ -36,13 +36,14 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-int find_function_to_call(char *line, instruction_t array[], int line_count);
+int find_function(char *line, instruction_t array[], int line_count, int *mode);
 void free_stack(stack_t **stack);
 
 void f_push(stack_t **stack, unsigned int line_number);
 void f_pop(stack_t **stack, unsigned int line_number);
 void f_swap(stack_t **stack, unsigned int line_number);
 void f_nop(stack_t **stack, unsigned int line_number);
+void f_push_queue(stack_t **stack, unsigned int line_number);
 
 void f_add(stack_t **stack, unsigned int line_number);
 void f_sub(stack_t **stack, unsigned int line_number);

@@ -11,7 +11,7 @@
  * -2 on empty line
  * -3 on comments (do nothing)
  */
-int find_function_to_call(char *line, instruction_t array[], int line_count)
+int find_function(char *line, instruction_t array[], int line_count, int *mode)
 {
 	char *instruction = strtok(line, " \n");
 	int i;
@@ -20,6 +20,16 @@ int find_function_to_call(char *line, instruction_t array[], int line_count)
 		return (-2);/* -2 error will not stop the program*/
 	if (instruction[0] == '#')/*comments*/
 		return (-3);
+	if (strcmp(instruction, "queue") == 0 && *mode == 0)
+	{
+		*mode = 1;
+		return (-4);
+	}
+	if (strcmp(instruction, "stack") == 0 && *mode == 1)
+	{
+		*mode = 0;
+		return (-4);
+	}
 	for (i = 0; array[i].opcode != NULL; i++)
 		if (strcmp(instruction, array[i].opcode) == 0)
 			return (i);
