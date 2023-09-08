@@ -37,6 +37,7 @@ typedef struct instruction_s
 } instruction_t;
 
 int find_function_to_call(char *line, instruction_t array[], int line_count);
+void free_stack(stack_t **stack);
 
 void f_push(stack_t **stack, unsigned int line_number);
 void f_pop(stack_t **stack, unsigned int line_number);
@@ -54,7 +55,8 @@ void f_pint(stack_t **stack, unsigned int line_number);
 void f_pchar(stack_t **stack, unsigned int line_number);
 void f_pstr(stack_t **stack, unsigned int line_number);
 
-void free_stack(stack_t **stack);
+void f_rotl(stack_t **stack, unsigned int line_number);
+void f_rotr(stack_t **stack, unsigned int line_number);
 
 int error;
 
